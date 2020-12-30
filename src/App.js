@@ -6,7 +6,7 @@ function App() {
     <Fragment>
       <nav>
         <div>
-          <a href="#about-me">About Me</a>
+          <a href="#test">Test</a>
         </div>
       </nav>
     </Fragment>
