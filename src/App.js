@@ -7,7 +7,6 @@ function App() {
       <nav>
         <div>
           <a href="#test">Test</a>
-          test
         </div>
       </nav>
     </Fragment>
