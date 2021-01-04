@@ -7,11 +7,7 @@ const defaultState = {
   function routingReducer(state = defaultState.pageToShow, action) {
     switch (action.type) {
       case "UPDATE_PAGE_TO_SHOW":
-        if (state < 5) {
-          return state + 1;
-        } else {
-          return 0;
-        }
+        return action.payload
       default:
         return state;
     }
