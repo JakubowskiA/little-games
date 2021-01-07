@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 const defaultState = {
-    pageToShow: 'home'
+    pageToShow: 0
   };
   
   function routingReducer(state = defaultState.pageToShow, action) {
