@@ -2,17 +2,22 @@ import React, { Component, Fragment } from "react";
 import "./styles/style.css";
 import { appsData } from "./AppsData";
 import { connect } from "react-redux";
+import { HomeGameCard } from "./HomeGameCard";
 
 class Home extends Component {
   render() {
-    console.log('test', this.props);
+    console.log("test", this.props);
     return (
       <Fragment>
         <nav>
           {appsData.map((app) => (
-            <div key={app.id} onClick={() => {this.props.updatePageToShow(app.id)}}>
-              {app.name}
-            </div>
+            <HomeGameCard
+              key={app.id}
+              onClick={() => {
+                this.props.updatePageToShow(app.id);
+              }}
+              app={app}
+            />
           ))}
         </nav>
       </Fragment>
@@ -28,7 +33,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    updatePageToShow: (appId) => dispatch({ type: "UPDATE_PAGE_TO_SHOW", payload: appId }),
+    updatePageToShow: (appId) =>
+      dispatch({ type: "UPDATE_PAGE_TO_SHOW", payload: appId }),
   };
 }
 

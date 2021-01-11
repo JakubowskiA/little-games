@@ -18,6 +18,7 @@ class App extends Component {
           ))}
         </nav>
         <div>
+
         {(() => {
           switch(this.props.state.pageToShow) {
             case 1: return <Home/>;

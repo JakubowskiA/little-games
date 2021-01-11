@@ -6,5 +6,18 @@ nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  padding: 1%;
+}
+
+nav div {
+  margin-left: 2%;
+}
+
+.home-game-card {
+  width: 15%;
+  height: 15%;
+  margin: 3%;
+  border-style: solid;
+  border: black;
 }
 /*# sourceMappingURL=style.css.map */
