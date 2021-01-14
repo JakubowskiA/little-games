@@ -20,4 +20,27 @@ nav div {
   border-style: solid;
   border: black;
 }
+
+.tictactoe-board {
+  margin: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 50vw;
+  border: 0.5vw solid;
+}
+
+.tictactoe-square {
+  border: 0.5vw solid;
+  width: 16.66667vw;
+  height: 14.28571vw;
+  -ms-flex-preferred-size: 15.66667vw;
+      flex-basis: 15.66667vw;
+}
 /*# sourceMappingURL=style.css.map */
