@@ -9,7 +9,7 @@ class TicTacToe extends Component {
       <Fragment>
        <Board
        currentBoard = {this.props.state.ticTacToe.board}
-       onClick={() => {this.props.selectSquare(payload)}}
+       onClick={this.props.selectSquare}
        />
       </Fragment>
     );

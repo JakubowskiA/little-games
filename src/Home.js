@@ -7,13 +7,15 @@ import { HomeGameCard } from "./HomeGameCard";
 class Home extends Component {
   render() {
     console.log("test", this.props);
+    console.log("apps", appsData);
     return (
       <Fragment>
         <nav>
-          {appsData.map((app) => (
+          {appsData.slice(1, appsData.length).map((app) => (
             <HomeGameCard
               key={app.id}
               onClick={() => {
+                console.log('hi', app.id)
                 this.props.updatePageToShow(app.id);
               }}
               app={app}

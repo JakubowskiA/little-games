@@ -22,7 +22,7 @@ class App extends Component {
         {(() => {
           switch(this.props.state.pageToShow) {
             case 1: return <Home updatePageToShow={this.props.updatePageToShow}/>;
-            case 2: return <TicTacToe/>;
+            case 2: return <TicTacToe updatePageToShow={this.props.updatePageToShow}/>;
           }
         })()}
       </div>
