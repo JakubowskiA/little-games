@@ -6,8 +6,6 @@ import { HomeGameCard } from "./HomeGameCard";
 
 class Home extends Component {
   render() {
-    console.log("test", this.props);
-    console.log("apps", appsData);
     return (
       <Fragment>
         <nav>

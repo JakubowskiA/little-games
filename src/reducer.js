@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 const defaultState = {
   pageToShow: 1,
   ticTacToe: {
+    playerOneTurn: true,
     board: [
       { id: 0, value: null, position: { x: 0, y: 0 }, status: null },
       { id: 1, value: null, position: { x: 0, y: 1 }, status: null },
@@ -27,9 +28,17 @@ function routingReducer(state = defaultState.pageToShow, action) {
 }
 
 function ticTacToeReducer(state = defaultState.ticTacToe, action) {
+  console.log('pl', action.payload, state)
   switch (action.type) {
     case "SELECT_SQUARE":
-      return action.payload;
+      if (state.playerOneTurn) {
+        state.board.find(square => square.id === action.payload).value = 'X';
+      }else{
+        state.board.find(square => square.id === action.payload).value = 'O';
+      }
+      state.playerOneTurn = !state.playerOneTurn
+      console.log('new', state)
+      return state
     default:
       return state;
   }

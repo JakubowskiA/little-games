@@ -1,36 +1,38 @@
 nav {
-    display: flex;
-    flex-direction: row;
-    padding: 1%;
-    div{
-        margin-left: 2%;
-    }
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  div {
+    margin-left: 2%;
+  }
 }
 
-.home-game-card{
-    width: 15%;
-    height: 15%;
-    margin: 3%;
-    border-style:solid;
-border: black;
+.home-game-card {
+  width: 15%;
+  height: 15%;
+  margin: 3%;
+  border-style: solid;
+  border: black;
 }
 
 // TICTACTOE
 $boardWidth: 50vw;
 $borderSize: $boardWidth/100;
 
-.tictactoe-board{
-margin: 3%;
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-width: $boardWidth;
-border: $borderSize solid;
+.tictactoe-board {
+  margin: 3%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: $boardWidth;
+  border: $borderSize solid;
+  font-size: 48pt;
+  text-align: center;
 }
 
-.tictactoe-square{
-    border: $borderSize solid;
-    width: $boardWidth/3;
-    height: $boardWidth * 2 /7;
-    flex-basis: (($boardWidth/3) - 2 * $borderSize);
+.tictactoe-square {
+  border: $borderSize solid;
+  width: $boardWidth/3;
+  height: $boardWidth * 2 /7;
+  flex-basis: (($boardWidth/3) - 2 * $borderSize);
 }

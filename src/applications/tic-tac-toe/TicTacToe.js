@@ -4,12 +4,11 @@ import Board from "./Board";
 
 class TicTacToe extends Component {
   render() {
-    console.log('a', this.props);
     return (
       <Fragment>
        <Board
        currentBoard = {this.props.state.ticTacToe.board}
-       onClick={this.props.selectSquare}
+       selectSquare = {this.props.selectSquare}
        />
       </Fragment>
     );
