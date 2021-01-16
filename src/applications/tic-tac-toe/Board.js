@@ -11,7 +11,6 @@ const Board = (props) => {
   console.log("board i", boardInfo);
 
   const onClick = (squareId) => {
-    console.log("bi", boardInfo[squareId].value);
     const tempBoard = boardInfo;
     if (tempBoard[squareId].value === null) {
       tempBoard[squareId].value = playerOneTurn ? "X" : "O";
@@ -19,8 +18,22 @@ const Board = (props) => {
       setPlayerOneTurn(!playerOneTurn);
       props.selectSquare(squareId);
     }
+    autoMove()
   };
-  
+
+  const autoMove = () => {
+    const tempBoard = boardInfo;
+    console.log('auto', tempBoard)
+    const availableSquares = tempBoard.filter(square => square.value === null)
+    console.log('available', availableSquares)
+    var chosenSquare = availableSquares[Math.floor(Math.random() * availableSquares.length)];
+    console.group('item', chosenSquare)
+    tempBoard[chosenSquare.id].value = playerOneTurn ? "X" : "O";
+      setBoardInfo(tempBoard);
+      setPlayerOneTurn(!playerOneTurn);
+      props.selectSquare(chosenSquare.id);
+  }
+
   return (
     <div className="tictactoe-board">
       {props.currentBoard.map((square) => (
