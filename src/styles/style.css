@@ -34,8 +34,9 @@ nav div {
       flex-wrap: wrap;
   width: 50vw;
   border: 0.5vw solid;
-  font-size: 48pt;
+  font-size: 10vw;
   text-align: center;
+  vertical-align: middle;
 }
 
 .tictactoe-square {
@@ -44,5 +45,7 @@ nav div {
   height: 14.28571vw;
   -ms-flex-preferred-size: 15.66667vw;
       flex-basis: 15.66667vw;
+  vertical-align: middle;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=style.css.map */
