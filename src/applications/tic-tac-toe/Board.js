@@ -12,7 +12,7 @@ const Board = (props) => {
 
   const onClick = (squareId) => {
     const tempBoard = boardInfo;
-    if (tempBoard[squareId].value === null) {
+    if (tempBoard[squareId].value === null && gameStatus === 'In progress') {
       tempBoard[squareId].value = playerOneTurn ? "X" : "O";
       setBoardInfo(tempBoard);
       setPlayerOneTurn(!playerOneTurn);
