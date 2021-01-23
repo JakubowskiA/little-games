@@ -1,8 +1,19 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import Board from "./Board";
+import Modal from "./Modal"
 
 class TicTacToe extends Component {
+  state={
+    modalOpen:true
+  }
+
+  showModal = () => {
+    this.setState({
+      show: false
+    });
+  };
+
   render() {
     return (
       <Fragment>
@@ -10,6 +21,7 @@ class TicTacToe extends Component {
        currentBoard = {this.props.state.ticTacToe.board}
        selectSquare = {this.props.selectSquare}
        />
+<Modal showModal={this.showModal}/>
       </Fragment>
     );
   }
