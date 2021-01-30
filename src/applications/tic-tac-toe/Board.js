@@ -9,7 +9,7 @@ const Board = (props) => {
   const [playerOneTurn, setPlayerOneTurn] = useState(true);
   const [gameStatus, setGameStatus] = useState("In progress");
   const [win, setWin] = useState(false);
-
+console.log('board props', props)
   const onClick = (squareId) => {
     const tempBoard = boardInfo;
     if (tempBoard[squareId].value === null && gameStatus === 'In progress') {
