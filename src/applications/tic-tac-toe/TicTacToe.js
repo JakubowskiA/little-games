@@ -6,8 +6,8 @@ import Modal from "./Modal";
 class TicTacToe extends Component {
   state = {
     modalOpen: true,
-    modalContent: 'start',
-    gameType: null
+    modalContent: "start",
+    gameType: null,
   };
 
   showModal = () => {
@@ -18,15 +18,15 @@ class TicTacToe extends Component {
 
   closeModal = () => {
     this.setState({
-      show: false
-    })
-  }
+      show: false,
+    });
+  };
 
   setGameType = (selectedType) => {
     this.setState({
-      gameType: selectedType
-    })
-  }
+      gameType: selectedType,
+    });
+  };
 
   render() {
     return (
@@ -36,7 +36,12 @@ class TicTacToe extends Component {
           selectSquare={this.props.selectSquare}
           gameType={this.state.gameType}
         />
-        <Modal showModal={this.showModal} closeModal={this.closeModal} modalContent={this.state.modalContent} setGameType={this.setGameType}/>
+        <Modal
+          showModal={this.showModal}
+          closeModal={this.closeModal}
+          modalContent={this.state.modalContent}
+          setGameType={this.setGameType}
+        />
       </Fragment>
     );
   }
