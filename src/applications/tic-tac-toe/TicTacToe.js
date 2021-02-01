@@ -10,15 +10,15 @@ class TicTacToe extends Component {
     gameType: null,
   };
 
-  showModal = () => {
+  openModal = () => {
     this.setState({
-      show: true,
+      modalOpen: true,
     });
   };
 
   closeModal = () => {
     this.setState({
-      show: false,
+      modalOpen: false,
     });
   };
 
@@ -35,13 +35,14 @@ class TicTacToe extends Component {
           currentBoard={this.props.state.ticTacToe.board}
           selectSquare={this.props.selectSquare}
           gameType={this.state.gameType}
+          openModal={this.openModal}
         />
+        {this.state.modalOpen && (
         <Modal
-          showModal={this.showModal}
           closeModal={this.closeModal}
           modalContent={this.state.modalContent}
           setGameType={this.setGameType}
-        />
+        />)}
       </Fragment>
     );
   }

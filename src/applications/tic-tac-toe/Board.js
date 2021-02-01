@@ -17,7 +17,7 @@ console.log('board props', props)
       setBoardInfo(tempBoard);
       setPlayerOneTurn(!playerOneTurn);
       props.selectSquare(squareId);
-      if (!checkWin()) {
+      if (!checkWin() && props.gameType === 'twoPlayer') {
         autoMove();
       }
     }
@@ -36,6 +36,7 @@ console.log('board props', props)
       ) {
         setWin(true);
         setGameStatus("Win");
+        endGame()
         return true;
       }
     }
@@ -48,7 +49,7 @@ console.log('board props', props)
         ) {
           setWin(true);
           setGameStatus("Win");
-
+          endGame()
           return true;
         }
       }
@@ -59,7 +60,7 @@ console.log('board props', props)
       ) {
         setWin(true);
         setGameStatus("Win");
-
+        endGame()
         return true;
       }
       if (
@@ -69,8 +70,10 @@ console.log('board props', props)
       ) {
         setWin(true);
         setGameStatus("Win");
+        endGame()
         return true;
       }
+      // filter to check for available squares and if there are none end game
     }
   };
 
@@ -91,6 +94,10 @@ console.log('board props', props)
       checkWin();
     }
   };
+
+  const endGame = () => {
+    
+  }
 
   return (
     <div className="tictactoe-board">
