@@ -6,7 +6,7 @@ import Modal from "./Modal";
 class TicTacToe extends Component {
   state = {
     modalOpen: true,
-    modalContent: "start",
+    modalContent: "Start",
     gameType: null,
   };
 
