@@ -10,9 +10,10 @@ class TicTacToe extends Component {
     gameType: null,
   };
 
-  openModal = () => {
+  openModal = (content) => {
     this.setState({
       modalOpen: true,
+      modalContent: content 
     });
   };
 

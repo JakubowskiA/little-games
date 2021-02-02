@@ -2,22 +2,25 @@ import React, { Component, Fragment, useState } from "react";
 import { useSelector } from "react-redux";
 import Square from "./Square";
 
-const Board = (props) => {
+const Board = ({currentBoard,
+  selectSquare,
+  gameType,
+  openModal}) => {
   const [boardInfo, setBoardInfo] = useState(
     useSelector((state) => state.ticTacToe.board)
   );
   const [playerOneTurn, setPlayerOneTurn] = useState(true);
   const [gameStatus, setGameStatus] = useState("In progress");
   const [win, setWin] = useState(false);
-console.log('board props', props)
+
   const onClick = (squareId) => {
     const tempBoard = boardInfo;
     if (tempBoard[squareId].value === null && gameStatus === 'In progress') {
       tempBoard[squareId].value = playerOneTurn ? "X" : "O";
       setBoardInfo(tempBoard);
       setPlayerOneTurn(!playerOneTurn);
-      props.selectSquare(squareId);
-      if (!checkWin() && props.gameType === 'twoPlayer') {
+      selectSquare(squareId);
+      if (!checkWin() && gameType === 'twoPlayer') {
         autoMove();
       }
     }
@@ -35,8 +38,7 @@ console.log('board props', props)
         tempBoard[i].value !== null
       ) {
         setWin(true);
-        setGameStatus("Win");
-        endGame()
+        endGame("Win")
         return true;
       }
     }
@@ -48,8 +50,7 @@ console.log('board props', props)
           tempBoard[i].value !== null
         ) {
           setWin(true);
-          setGameStatus("Win");
-          endGame()
+          endGame("Win")
           return true;
         }
       }
@@ -59,8 +60,7 @@ console.log('board props', props)
         tempBoard[0].value !== null
       ) {
         setWin(true);
-        setGameStatus("Win");
-        endGame()
+        endGame("Win")
         return true;
       }
       if (
@@ -69,11 +69,16 @@ console.log('board props', props)
         tempBoard[2].value !== null
       ) {
         setWin(true);
-        setGameStatus("Win");
-        endGame()
+        endGame("Win")
         return true;
       }
-      // filter to check for available squares and if there are none end game
+      const availableSquares = tempBoard.filter(
+        (square) => square.value === null
+      );
+      if(!availableSquares.length){
+        endGame("Draw")
+        return true;
+      }
     }
   };
 
@@ -90,23 +95,24 @@ console.log('board props', props)
       tempBoard[chosenSquare.id].value = playerOneTurn ? "X" : "O";
       setBoardInfo(tempBoard);
       setPlayerOneTurn(!playerOneTurn);
-      props.selectSquare(chosenSquare.id);
+      selectSquare(chosenSquare.id);
       checkWin();
     }
   };
 
-  const endGame = () => {
-    
+  const endGame = (status) => {
+    setGameStatus(status);
+    openModal(status)
   }
 
   return (
     <div className="tictactoe-board">
-      {props.currentBoard.map((square) => (
+      {currentBoard.map((square) => (
         <div
           className="tictactoe-square"
           key={square.id}
           squareId={square.id}
-          selectSquare={props.selectSquare}
+          selectSquare={selectSquare}
           onClick={() => {
             onClick(square.id);
           }}
